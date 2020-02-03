@@ -1,0 +1,11 @@
+.link-web {
+  text-decoration: none;
+  font-family: var(--main-font);
+  font-weight: var(--regular);
+  color: #000033;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+.link-web:hover {
+  color: #ff8080;
+}

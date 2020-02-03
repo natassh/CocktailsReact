@@ -1,0 +1,66 @@
+.RecipeList__RecipeBox {
+  margin: 0 2rem 2rem 1rem;
+  padding: 1rem 0 1rem 0;
+  background: var(--main-text);
+  border: 1px solid var(--bg-second);
+  max-width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.RecipeList__RecipeBox img {
+  display: block;
+  width: 100%;
+}
+.RecipeList__RecipeBox h2 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--second-font);
+  font-size: 1.5rem;
+  color: var(--bg-);
+  text-transform: capitalize;
+}
+.RecipeList__RecipeBox a:hover h2 {
+  color: var(--color-second);
+}
+@media screen and (max-width: 759px) {
+  .RecipeList__RecipeBox {
+    margin: 0 1rem 1rem 1rem;
+  }
+  .RecipeList__RecipeBox {
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 660px) {
+  .BoxDetail h2 {
+    font-size: 1.7rem;
+  }
+  .BoxDetail h3 {
+    font-size: 1.3rem;
+  }
+  .BoxDetail {
+    padding: 2.5rem 2rem 2.5rem 2rem !important;
+    max-width: 100% !important;
+    border: none !important;
+  }
+  .BoxDetail figure {
+    padding: 0;
+    margin: 0;
+    margin-right: 1rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .RecipeList__RecipeBox h2 {
+    font-size: 1.3rem;
+  }
+  .BoxDetail {
+    flex-direction: column;
+  }
+  .BoxDetail figure {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .BoxDetail > div {
+    max-width: 90% !important;
+  }
+}

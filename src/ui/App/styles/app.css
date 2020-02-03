@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Jomolhari&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lobster|Playfair+Display:400,500,600,700,900&display=swap');
+/* Commons */
+@import 'global-var.css';
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+main {
+  padding: 3rem 2rem 3rem 2rem;
+}
+.cw {
+  width: 1400px;
+  margin: 0 auto;
+}
+.Form__SelectCategory {
+  width: 33% !important;
+  margin-right: 1.3rem !important;
+}
+@media screen and (max-width: 1095px) {
+  .cw {
+    width: 768px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .cw {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .cw {
+    flex-direction: column;
+  }
+  .Form__SelectCategory {
+    width: 100% !important;
+    margin-bottom: 1rem !important;
+    margin-right: 0 !important;
+  }
+  .css-1hwfws3 {
+    height: 3rem !important;
+  }
+}
+@media screen and (max-width: 424px) {
+  main {
+    padding: 1rem 2rem 3rem 2rem;
+  }
+}

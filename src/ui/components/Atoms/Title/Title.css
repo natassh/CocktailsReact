@@ -1,0 +1,66 @@
+.Title {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--title);
+  font-size: 5.1rem;
+  text-align: center;
+  color: var(--main-text);
+  margin: 0 auto;
+  font-weight: var(--light);
+  position: relative;
+  padding-left: 6rem;
+  line-height: 3.7rem;
+  max-width: 26rem;
+}
+.Title strong {
+  font-family: var(--title-second);
+  font-size: 4.2rem;
+  font-weight: 400;
+}
+.Title:before {
+  display: block;
+  content: '';
+  width: 7rem;
+  height: 9rem;
+  background-image: url('../../../assets/images/cup5.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  background-size: 100%;
+}
+
+@media screen and (max-width: 500px) {
+  .Title:before {
+    width: 6rem;
+    height: 8rem;
+  }
+  .Title {
+    font-size: 3.5rem;
+    padding-left: 2rem;
+  }
+  .Title strong {
+    font-size: 4.2rem;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .Title:before {
+    width: 4rem;
+    height: 6rem;
+    bottom: -21px;
+  }
+  .Title {
+    font-size: 2.5rem;
+    line-height: 2.7rem;
+    max-width: 20rem;
+    padding-left: 0;
+  }
+  .Title strong {
+    font-size: 3.2rem;
+  }
+}

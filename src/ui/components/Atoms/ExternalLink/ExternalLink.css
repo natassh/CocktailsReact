@@ -1,0 +1,38 @@
+footer .link a {
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  font-family: var(--main-font);
+  font-weight: var(--regular);
+  color: var(--color-title);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  margin-right: 2rem;
+}
+footer .link:last-child {
+  margin-right: 0;
+}
+footer a {
+  text-decoration: none;
+}
+footer .link:hover {
+  transform: scale(1.1);
+}
+.link:hover a {
+  color: #ff8080;
+}
+.tw:hover a {
+  color: #1a97f0;
+}
+.lk:hover a {
+  color: #0068a9;
+}
+.gh:hover a {
+  color: #000;
+}
+@media screen and (max-width: 425px) {
+  footer .link a {
+    font-size: 0.8rem;
+    margin-right: 1rem;
+  }
+}

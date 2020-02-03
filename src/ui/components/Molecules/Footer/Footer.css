@@ -1,0 +1,17 @@
+footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*
+@media screen and (max-width: 767px) {
+  footer {
+    position: relative;
+  }
+}
+*/

@@ -1,0 +1,42 @@
+.stack {
+  display: inline-block;
+  width: 300px;
+  transform: rotate(38deg);
+  position: fixed;
+  right: -73px;
+  top: 45px;
+  cursor: pointer;
+  text-align: center;
+}
+.stack__title {
+  margin: 0;
+  padding: 0;
+  color: var(--bg-);
+  font-size: 0.7rem;
+  font-family: var(--font);
+  font-weight: var(--regular);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background-color: var(--main-text);
+  padding: 5px 55px 5px 55px;
+  transition: all 0.2s ease-in-out;
+}
+.stack:hover .stack__title {
+  transform: scale(1.1);
+  color: var(--main-text);
+  background-color: var(--bg-);
+}
+@media screen and (max-width: 660px) {
+  .stack__title {
+    font-size: 0.6rem;
+  }
+}
+@media screen and (max-width: 465px) {
+  .stack {
+    right: -87px;
+    top: 37px;
+  }
+  .stack__title {
+    font-size: 0.77rem;
+  }
+}

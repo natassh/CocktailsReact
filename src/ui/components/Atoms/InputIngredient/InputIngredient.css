@@ -1,0 +1,31 @@
+.Form__InputIngredient {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--main-text);
+  padding: 0.5rem;
+  display: inline-block;
+  font-family: var(--second-font);
+  font-size: 1rem;
+  color: var(--second-text);
+  width: 33%;
+  height: 36px;
+  margin-right: 1.3rem;
+  border-radius: 0.25rem;
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 80%);
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+}
+.Form__InputIngredient::placeholder {
+  color: #747370;
+}
+@media screen and (max-width: 767px) {
+  .Form__InputIngredient {
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+    height: 3rem;
+  }
+}

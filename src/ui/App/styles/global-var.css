@@ -1,0 +1,16 @@
+:root {
+  --main-text: #fff;
+  --second-text: #020009;
+  --bg-: #d22a40;
+  --bg-second: #e1e1e1;
+
+  --main-font: 'Montserrat', sans-serif;
+  --second-font: 'Open Sans', sans-serif;
+  --font: 'Jomolhari', serif;
+  --title: 'Lobster', cursive;
+  --title-second: 'Playfair Display', serif;
+
+  --semi-bold: 600;
+  --regular: 400;
+  --light: 300;
+}

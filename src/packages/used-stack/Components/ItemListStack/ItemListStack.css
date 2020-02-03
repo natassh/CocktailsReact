@@ -1,0 +1,17 @@
+.list-stack li {
+  list-style: none;
+  margin-bottom: 1.25rem;
+}
+.modal__content figure img {
+  display: block;
+  width: 100%;
+}
+.modal__content figure {
+  height: 1.6rem;
+  width: 1.6rem;
+  float: left;
+  margin: 0;
+  padding: 0;
+  margin-right: 0.6rem;
+  margin-bottom: 0.3rem;
+}

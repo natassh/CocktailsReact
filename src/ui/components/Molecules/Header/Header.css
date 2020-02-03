@@ -1,0 +1,13 @@
+.main-header {
+  background-color: var(--bg-);
+  padding: 6rem 0 6rem 0;
+  padding-left: 1rem;
+  text-align: center;
+}
+
+@media screen and (max-width: 424px) {
+  .main-header {
+    padding: 6rem 0 5rem 0;
+    padding-left: 1rem;
+  }
+}
