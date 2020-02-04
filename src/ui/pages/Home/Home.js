@@ -9,10 +9,8 @@ const Home = () => {
   return (
     <>
       <main>
-        <div className="cw">
-          <FormCocktail className="FormCocktail" />
-          {recipes.length > 0 && <RecipeList recipes={recipes} />}
-        </div>
+        <FormCocktail className="FormCocktail" />
+        {recipes.length > 0 && <RecipeList recipes={recipes} />}
       </main>
     </>
   );

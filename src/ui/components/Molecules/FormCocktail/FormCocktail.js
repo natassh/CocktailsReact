@@ -37,7 +37,7 @@ const FormCocktail = ({ className }) => {
     ContextListRecipes
   );
   const [ingredients, setIngredients] = useState({
-    category: 'Soft Drink / Soda'
+    category: 'Punch / Party Drink'
   });
 
   // Get category selected from select

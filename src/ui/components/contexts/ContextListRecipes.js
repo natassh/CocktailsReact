@@ -8,7 +8,7 @@ export const ContextListRecipes = createContext();
 const ProviderListRecipes = props => {
   const [recipes, setRecipes] = useState([]);
   const [ingredientsFiltered, setIngredientsFiltered] = useState({
-    category: 'Soft Drink / Soda'
+    category: 'Punch / Party Drink'
   });
 
   useEffect(() => {
