@@ -11,8 +11,7 @@ import Modal from '../../packages/used-stack/Components/Modal/Modal';
 
 import Footer from '../components/Molecules/Footer';
 
-import ProviderCategory from '../components/contexts/ContextCategory';
-import ProviderRecipes from '../components/contexts/ContextRecipes';
+import ProviderListRecipes from '../components/contexts/ContextListRecipes';
 import ProviderDetailRecipes from '../components/contexts/ContextDetailRecipe';
 
 import './styles/app.css';
@@ -31,24 +30,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <ProviderCategory>
-        <ProviderRecipes>
-          <ProviderDetailRecipes>
-            <Router>
-              <Header className="main-header" />
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/recipe/:id" component={RecipeDetail} />
-              </Switch>
-              <Footer />
-            </Router>
-            <Ribbon text="Used stack" onChange={handleIsOpenModal} />
-            {modal.isOpen && <Modal onClose={handleCloseModal} />}
-          </ProviderDetailRecipes>
-        </ProviderRecipes>
-      </ProviderCategory>
-    </div>
+    <ProviderListRecipes>
+      <div className="App">
+        <ProviderDetailRecipes>
+          <Router>
+            <Header className="main-header" />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/recipe/:id" component={RecipeDetail} />
+            </Switch>
+            <Footer />
+          </Router>
+          <Ribbon text="Used stack" onChange={handleIsOpenModal} />
+          {modal.isOpen && <Modal onClose={handleCloseModal} />}
+        </ProviderDetailRecipes>
+      </div>
+    </ProviderListRecipes>
   );
 }
 

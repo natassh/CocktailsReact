@@ -1,21 +1,26 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import SelectCategory from 'react-select';
-
-import InputIngredient from '../../Atoms/InputIngredient';
+import { ContextListRecipes } from '../../contexts/ContextListRecipes';
+import { getCategoriesCocktail } from '../../../../core/services/cocktails';
 import ButtonSearch from '../../Atoms/ButtonSearch';
-
-import { ContextCategory } from '../../contexts/ContextCategory';
-import { ContextRecipes } from '../../contexts/ContextRecipes';
-
 import './FormCocktail.css';
 
-const FormCocktail = ({ className, cocktailObtained }) => {
-  // Print options select
-  const { categories } = useContext(ContextCategory);
-  const createObjectOptions = categories => {
+const FormCocktail = ({ className }) => {
+  // Get options to select
+  const [drinks, setDrinks] = useState([]);
+  useEffect(() => {
+    handleCategories();
+  }, []);
+
+  const handleCategories = async () => {
+    const categoriesCocktails = await getCategoriesCocktail();
+    const drinks = categoriesCocktails.drinks;
+    setDrinks(drinks);
+  };
+  const createObjectOptions = drinks => {
     const arrayOptions = [];
-    categories.forEach(bloggerFiltered => {
+    drinks.forEach(bloggerFiltered => {
       const categoryTitle = bloggerFiltered.strCategory;
       arrayOptions.push(categoryTitle);
     });
@@ -27,39 +32,35 @@ const FormCocktail = ({ className, cocktailObtained }) => {
     return options;
   };
 
-  const { setcocktailsToSearch } = useContext(ContextRecipes);
-
-  const [cocktail, setCocktail] = useState({
-    ingredient: 'coco',
-    category: 'beer'
+  // Create states for ingredients
+  const { ingredientsFiltered, setIngredientsFiltered } = useContext(
+    ContextListRecipes
+  );
+  const [ingredients, setIngredients] = useState({
+    category: 'Soft Drink / Soda'
   });
 
-  const handleChangeIngredient = ingredientValue => {
-    setCocktail({
-      ...cocktail,
-      ingredient: ingredientValue
-    });
-  };
+  // Get category selected from select
   const handleChangeCategory = category => {
     const valueCategory = category.value;
-    setCocktail({
-      ...cocktail,
+    setIngredients({
       category: valueCategory
     });
   };
+
+  // Save filtered ingredients in the App Context
   const handleSubmit = e => {
     e.preventDefault();
-    cocktailObtained(cocktail);
-    setcocktailsToSearch(cocktail);
+    setIngredientsFiltered(ingredients);
   };
 
   return (
     <form className={className} onSubmit={handleSubmit}>
-      <InputIngredient onChange={handleChangeIngredient} />
       <SelectCategory
         onChange={handleChangeCategory}
-        options={createObjectOptions(categories)}
+        options={createObjectOptions(drinks)}
         className="Form__SelectCategory"
+        placeholder={ingredientsFiltered.category}
       />
       <ButtonSearch type="submit" value="Search" />
     </form>
@@ -69,6 +70,5 @@ const FormCocktail = ({ className, cocktailObtained }) => {
 export default FormCocktail;
 
 FormCocktail.propTypes = {
-  className: PropTypes.string,
-  cocktailObtained: PropTypes.func
+  className: PropTypes.string
 };

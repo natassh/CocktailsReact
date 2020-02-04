@@ -1,5 +1,4 @@
 import React, { createContext, useState, useEffect } from 'react';
-
 import { getDetailRecipeCocktail } from '../../../core/services/cocktails';
 
 export const ContextDetailRecipe = createContext();
@@ -18,7 +17,6 @@ const ProviderDetailRecipes = props => {
     const recipe = detailRecipeCocktail.drinks;
     setRecipeCocktail(recipe);
   };
-
   return (
     <ContextDetailRecipe.Provider
       value={{ setIdCocktail, recipeCocktail, setRecipeCocktail }}
