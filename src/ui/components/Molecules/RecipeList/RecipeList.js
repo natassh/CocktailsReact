@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-import { ContextDetailRecipe } from '../../contexts/ContextDetailRecipe';
-
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
@@ -8,19 +6,11 @@ import RecipeBox from '../../Atoms/RecipeBox';
 import './RecipeList.css';
 
 const RecipeList = ({ recipes }) => {
-  const { setIdCocktail } = useContext(ContextDetailRecipe);
-
   return (
     <section className="RecipeList">
       {recipes.map(recipe => {
         return (
-          <Link
-            to={`/recipe/${recipe.idDrink}`}
-            key={recipe.idDrink}
-            onClick={() => {
-              setIdCocktail(recipe.idDrink);
-            }}
-          >
+          <Link to={`/recipe/${recipe.idDrink}`} key={recipe.idDrink}>
             <RecipeBox
               id={recipe.idDrink}
               name={recipe.strDrink}

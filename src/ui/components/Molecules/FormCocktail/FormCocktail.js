@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import SelectCategory from 'react-select';
-import { ContextListRecipes } from '../../contexts/ContextListRecipes';
+import { ContextCocktails } from '../../contexts/ContextCocktails';
 import { getCategoriesCocktail } from '../../../../core/services/cocktails';
 import ButtonSearch from '../../Atoms/ButtonSearch';
 import './FormCocktail.css';
@@ -18,6 +18,7 @@ const FormCocktail = ({ className }) => {
     const drinks = categoriesCocktails.drinks;
     setDrinks(drinks);
   };
+  //console.log(drinks);
   const createObjectOptions = drinks => {
     const arrayOptions = [];
     drinks.forEach(bloggerFiltered => {
@@ -34,7 +35,7 @@ const FormCocktail = ({ className }) => {
 
   // Create states for ingredients
   const { ingredientsFiltered, setIngredientsFiltered } = useContext(
-    ContextListRecipes
+    ContextCocktails
   );
   const [ingredients, setIngredients] = useState({
     category: 'Punch / Party Drink'

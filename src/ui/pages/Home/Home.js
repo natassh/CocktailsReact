@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { ContextListRecipes } from '../../components/contexts/ContextListRecipes';
+import { ContextCocktails } from '../../components/contexts/ContextCocktails';
 import FormCocktail from '../../components/Molecules/FormCocktail';
 import RecipeList from '../../components/Molecules/RecipeList';
 import './Home.css';
 
 const Home = () => {
-  const { recipes } = useContext(ContextListRecipes);
+  const { recipes } = useContext(ContextCocktails);
   return (
     <>
       <main>

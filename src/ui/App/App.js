@@ -11,8 +11,7 @@ import Modal from '../../packages/used-stack/Components/Modal/Modal';
 
 import Footer from '../components/Molecules/Footer';
 
-import ProviderListRecipes from '../components/contexts/ContextListRecipes';
-import ProviderDetailRecipes from '../components/contexts/ContextDetailRecipe';
+import ProviderCocktails from '../components/contexts/ContextCocktails';
 
 import './styles/app.css';
 
@@ -30,22 +29,20 @@ function App() {
   };
 
   return (
-    <ProviderListRecipes>
+    <ProviderCocktails>
       <div className="App">
-        <ProviderDetailRecipes>
-          <Router>
-            <Header className="main-header" />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/recipe/:id" component={RecipeDetail} />
-            </Switch>
-            <Footer />
-          </Router>
-          <Ribbon text="Used stack" onChange={handleIsOpenModal} />
-          {modal.isOpen && <Modal onClose={handleCloseModal} />}
-        </ProviderDetailRecipes>
+        <Router>
+          <Header className="main-header" />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/recipe/:id" component={RecipeDetail} />
+          </Switch>
+          <Footer />
+        </Router>
+        <Ribbon text="Used stack" onChange={handleIsOpenModal} />
+        {modal.isOpen && <Modal onClose={handleCloseModal} />}
       </div>
-    </ProviderListRecipes>
+    </ProviderCocktails>
   );
 }
 

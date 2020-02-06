@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { ContextListRecipes } from '../../contexts/ContextListRecipes';
+import { ContextCocktails } from '../../contexts/ContextCocktails';
 import PropTypes from 'prop-types';
 import './InputIngredient.css';
 
 const InputIngredient = ({ onChange }) => {
-  const { ingredientsFiltered } = useContext(ContextListRecipes);
+  const { ingredientsFiltered } = useContext(ContextCocktails);
 
   const [valueInput, setvalueInput] = useState('');
 

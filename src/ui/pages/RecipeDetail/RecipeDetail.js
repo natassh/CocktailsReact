@@ -1,18 +1,27 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { ContextDetailRecipe } from '../../components/contexts/ContextDetailRecipe';
-
+import React, { useState, useEffect, useContext } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { getDetailRecipeCocktail } from '../../../core/services/cocktails';
+import { ContextCocktails } from '../../components/contexts/ContextCocktails';
+import ButtonFavorite from '../../components/Atoms/ButtonFavorite';
+import FavoritesSection from '../../components/Molecules/FavoritesSection';
 import './RecipeDetail.css';
 
 const RecipeDetail = () => {
-  const { recipeCocktail, setRecipeCocktail, setIdCocktail } = useContext(
-    ContextDetailRecipe
-  );
+  const { isFav, setAddFavourite, favorites } = useContext(ContextCocktails);
+  const { id } = useParams();
+  const [recipe, setRecipeCocktail] = useState([]);
 
-  const recipe = recipeCocktail[0];
+  useEffect(() => {
+    handleDetailRecipeCocktail(id);
+  }, [id]);
 
-  const showIngredients = recipeCocktail => {
-    const recipe = recipeCocktail[0];
+  const handleDetailRecipeCocktail = async id => {
+    const detailRecipeCocktail = await getDetailRecipeCocktail(id);
+    const recipe = detailRecipeCocktail.drinks[0];
+    setRecipeCocktail(recipe);
+  };
+
+  const showIngredients = recipe => {
     let ingredients = [];
     for (let i = 1; i < 16; i++) {
       if (recipe[`strIngredient${i}`]) {
@@ -26,52 +35,52 @@ const RecipeDetail = () => {
     return ingredients;
   };
 
+  const handleFavorites = () => {
+    setAddFavourite(recipe);
+  };
+
   if (recipe !== undefined) {
     const nameCocktail = recipe.strDrink;
     const category = recipe.strCategory;
     const instructions = recipe.strInstructions;
     const image = recipe.strDrinkThumb;
     return (
-      <article className="BoxDetail">
-        <figure>
-          <img src={image} alt={nameCocktail} />
-        </figure>
-        <div>
-          <h2>{nameCocktail}</h2>
-          <p>
-            <strong>Category: </strong> {category}
-          </p>
-          <p>
-            <strong>Recipe: </strong> {instructions}
-          </p>
+      <>
+        <article className="BoxDetail">
+          <figure>
+            <img src={image} alt={nameCocktail} />
+          </figure>
           <div>
-            <strong>Ingredients and Quantities: </strong>
-            <ul>{showIngredients(recipeCocktail)}</ul>
+            <h2>{nameCocktail}</h2>
+            <p>
+              <strong>Category: </strong> {category}
+            </p>
+            <p>
+              <strong>Recipe: </strong> {instructions}
+            </p>
+            <div>
+              <strong>Ingredients and Quantities: </strong>
+              <ul>{showIngredients(recipe)}</ul>
+            </div>
+            <div className="BoxDetail__buttons">
+              <Link to={`/`} className="return">
+                Volver al buscador
+              </Link>
+              {!isFav(recipe) && (
+                <ButtonFavorite
+                  type="button"
+                  value="Añadir a favoritos"
+                  onClick={handleFavorites}
+                />
+              )}
+            </div>
           </div>
-
-          <Link
-            to={`/`}
-            className="return"
-            onClick={() => {
-              setIdCocktail(null); // Limpiamos el state para que cargue solo la pulsada y no tb la anterior
-              setRecipeCocktail([]); // Lo mismo
-            }}
-          >
-            Volver al buscador
-          </Link>
-        </div>
-      </article>
+        </article>
+        <FavoritesSection favoritesCocktails={favorites} />
+      </>
     );
   } else {
-    return (
-      <article className="BoxDetail">
-        <div>
-          <Link to={`/`} className="return">
-            Volver al buscador
-          </Link>
-        </div>
-      </article>
-    );
+    return null;
   }
 };
 
