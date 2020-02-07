@@ -1,2 +1,36 @@
 .FavoritesSection {
+  padding: 2rem 1rem;
+  text-align: center;
+}
+.FavoritesSection > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.FavoritesSection .RecipeList__RecipeBox {
+  max-width: 170px;
+  padding: 0 0 0 0;
+  margin: 0 0.5rem 2rem 2rem;
+  border: none;
+}
+.FavoritesSection .RecipeList__RecipeBox figure {
+  margin: 0;
+  padding: 0;
+}
+.FavoritesSection .RecipeList__RecipeBox h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0 0.5rem 0;
+  color: var(--color-text);
+}
+.FavoritesSection h3 {
+  margin: 0;
+  padding: 0;
+  font-family: var(--title-second);
+  font-size: 2.7rem;
+  color: var(--color-text);
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--bg-);
+  display: inline-block;
 }

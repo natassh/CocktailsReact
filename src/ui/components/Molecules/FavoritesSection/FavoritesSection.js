@@ -7,17 +7,19 @@ const FavoritesSection = ({ favoritesCocktails }) => {
   return (
     <aside className="FavoritesSection">
       <h3>Favoritos</h3>
-      {favoritesCocktails.map(recipe => {
-        return (
-          <RecipeBox
-            key={recipe.idDrink}
-            id={recipe.idDrink}
-            name={recipe.strDrink}
-            src={recipe.strDrinkThumb}
-            alt={recipe.strDrink}
-          />
-        );
-      })}
+      <div>
+        {favoritesCocktails.map(recipe => {
+          return (
+            <RecipeBox
+              key={recipe.idDrink}
+              id={recipe.idDrink}
+              name={recipe.strDrink}
+              src={recipe.strDrinkThumb}
+              alt={recipe.strDrink}
+            />
+          );
+        })}
+      </div>
     </aside>
   );
 };

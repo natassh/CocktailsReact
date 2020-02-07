@@ -63,7 +63,11 @@ const FormCocktail = ({ className }) => {
         className="Form__SelectCategory"
         placeholder={ingredientsFiltered.category}
       />
-      <ButtonSearch type="submit" value="Search" />
+      <ButtonSearch
+        type="submit"
+        value="Search"
+        className="BloggerSearchForm__ButtonSearch"
+      />
     </form>
   );
 };

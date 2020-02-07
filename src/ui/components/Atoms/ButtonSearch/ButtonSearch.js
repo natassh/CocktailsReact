@@ -2,12 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './ButtonSearch.css';
 
-const ButtonSearch = ({ type, value }) => (
-  <input
-    type={type}
-    value={value}
-    className="BloggerSearchForm__ButtonSearch"
-  />
+const ButtonSearch = ({ type, value, className }) => (
+  <input type={type} value={value} className={className} />
 );
 export default ButtonSearch;
 

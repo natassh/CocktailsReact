@@ -3,19 +3,22 @@ import { Link, useParams } from 'react-router-dom';
 import { getDetailRecipeCocktail } from '../../../core/services/cocktails';
 import { ContextCocktails } from '../../components/contexts/ContextCocktails';
 import ButtonFavorite from '../../components/Atoms/ButtonFavorite';
+import ButtonDelete from '../../components/Atoms/ButtonDelete';
 import FavoritesSection from '../../components/Molecules/FavoritesSection';
 import './RecipeDetail.css';
 
 const RecipeDetail = () => {
-  const { isFav, setAddFavourite, favorites } = useContext(ContextCocktails);
+  const { isFav, setAddFavorite, favorites, setDeleteFavorite } = useContext(
+    ContextCocktails
+  );
   const { id } = useParams();
   const [recipe, setRecipeCocktail] = useState([]);
 
   useEffect(() => {
-    handleDetailRecipeCocktail(id);
+    onLoadDetailRecipeCocktail(id);
   }, [id]);
 
-  const handleDetailRecipeCocktail = async id => {
+  const onLoadDetailRecipeCocktail = async id => {
     const detailRecipeCocktail = await getDetailRecipeCocktail(id);
     const recipe = detailRecipeCocktail.drinks[0];
     setRecipeCocktail(recipe);
@@ -35,9 +38,16 @@ const RecipeDetail = () => {
     return ingredients;
   };
 
-  const handleFavorites = () => {
-    setAddFavourite(recipe);
+  const handleAddFavorites = () => {
+    setAddFavorite(recipe);
+    // const cocktailID = recipe.idDrink;
+    // console.log(cocktailID);
   };
+
+  const handleDeleteFavorites = () => {
+    setDeleteFavorite(recipe);
+  };
+  console.log(recipe.idDrink);
 
   if (recipe !== undefined) {
     const nameCocktail = recipe.strDrink;
@@ -66,17 +76,29 @@ const RecipeDetail = () => {
               <Link to={`/`} className="return">
                 Volver al buscador
               </Link>
-              {!isFav(recipe) && (
-                <ButtonFavorite
+              <div>
+                {!isFav(recipe) && (
+                  <ButtonFavorite
+                    type="button"
+                    value="Añadir a favoritos"
+                    className="BloggerSearchForm__ButtonFavorite"
+                    onClick={handleAddFavorites}
+                  />
+                )}
+
+                <ButtonDelete
                   type="button"
-                  value="Añadir a favoritos"
-                  onClick={handleFavorites}
+                  value="Eliminar de favoritos"
+                  className="BloggerSearchForm__ButtonDelete"
+                  onClick={handleDeleteFavorites}
                 />
-              )}
+              </div>
             </div>
           </div>
         </article>
-        <FavoritesSection favoritesCocktails={favorites} />
+        {favorites.length > 0 && (
+          <FavoritesSection favoritesCocktails={favorites} />
+        )}
       </>
     );
   } else {

@@ -23,23 +23,46 @@ const ProviderCocktails = props => {
     setRecipes(recipes);
   };
 
+  // const isFav = cocktailObject => {
+  //   //console.log(cocktailObject.idDrink);
+  //   favorites.forEach(favorite => {
+  //     const idfavorite = favorite.idDrink;
+  //     //console.log(idfavorite);
+  //     if (idfavorite === cocktailObject.idDrink) {
+  //       return true;
+  //     }
+  //     return false;
+  //   });
+
+  //   // if (favorites.includes(cocktailObject)) {
+  //   //   return true;
+  //   // }
+  //   // return false;
+  // };
+
   // Favorites
   const [favorites, setFavorites] = useState([]);
-  //console.log({ favorites });
 
-  const setAddFavourite = idCocktail => {
-    //console.log('idCocktail', idCocktail);
-    //console.log('before favorites', favorites);
-    if (!favorites.includes(idCocktail)) {
-      const newFavs = [...favorites, idCocktail];
-      //console.log('after favorites', newFavs);
+  const setAddFavorite = cocktailObject => {
+    //console.log(cocktailObject); //objeto
+    if (!favorites.includes(cocktailObject)) {
+      const newFavs = [...favorites, cocktailObject];
       setFavorites(newFavs);
     }
   };
-  console.log({ favorites });
+  const setDeleteFavorite = cocktailObject => {
+    if (favorites.includes(cocktailObject)) {
+      console.log('si');
+      const newFavs = favorites.splice(0, 1);
+      setFavorites(newFavs);
+    }
+  };
 
   const isFav = recipe => {
+    //console.log(recipe); //object
+    //console.log(favorites); //array de objetos, vacio en la primera carga
     if (favorites.includes(recipe)) {
+      //console.log('si');
       return true;
     }
     return false;
@@ -51,9 +74,10 @@ const ProviderCocktails = props => {
         ingredientsFiltered,
         setIngredientsFiltered,
         recipes,
-        setAddFavourite,
+        setAddFavorite,
         isFav,
-        favorites
+        favorites,
+        setDeleteFavorite
       }}
     >
       {props.children}

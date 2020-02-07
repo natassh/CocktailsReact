@@ -21,11 +21,7 @@ main {
   width: 33% !important;
   margin-right: 1.3rem !important;
 }
-.BoxDetail__buttons {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
+
 @media screen and (max-width: 1095px) {
   .cw {
     width: 768px;

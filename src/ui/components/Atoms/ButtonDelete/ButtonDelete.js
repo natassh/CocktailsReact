@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ButtonFavorite.css';
+import './ButtonDelete.css';
 
-const ButtonFavorite = ({ type, value, className, onClick }) => (
+const ButtonDelete = ({ type, value, className, onClick }) => (
   <input type={type} value={value} className={className} onClick={onClick} />
 );
-export default ButtonFavorite;
+export default ButtonDelete;
 
-ButtonFavorite.propTypes = {
+ButtonDelete.propTypes = {
   type: PropTypes.string,
   value: PropTypes.string
 };

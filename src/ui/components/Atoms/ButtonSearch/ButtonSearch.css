@@ -6,7 +6,10 @@
   color: var(--main-text);
   font-weight: 600;
   cursor: pointer;
-  width: 33%;
+  border: none;
+  border-radius: 0;
+  height: 38px;
+  width: 15rem;
 }
 .BloggerSearchForm__ButtonSearch:hover {
   text-decoration: underline;
@@ -28,9 +31,13 @@ input[type='button'] {
   font-size: 1rem;
   transition: background-color 0.5s;
   text-decoration: none;
-  margin-left: 1rem;
-  width: 38%;
+
+  margin: 0.8rem 0 0.8rem 0;
 }
+input[type='button']:last-child {
+  margin: 0 0 0.8rem 0;
+}
+
 input[type='button']:hover {
   background-color: var(--color-second);
   border: 1px solid var(--bg-);
