@@ -2,7 +2,7 @@
   background-color: transparent !important;
   border: 1px solid var(--bg-) !important;
   color: var(--bg-) !important;
-  width: 10.6rem !important;
+  width: 11rem !important;
 }
 .BloggerSearchForm__ButtonDelete:hover {
   text-decoration: line-through !important;

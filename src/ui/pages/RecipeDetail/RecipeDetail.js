@@ -71,13 +71,13 @@ const RecipeDetail = () => {
             </div>
             <div className="BoxDetail__buttons">
               <Link to={`/`} className="return">
-                Volver al buscador
+                Back to list
               </Link>
               <div>
                 {!isFav(recipe) && (
                   <ButtonFavorite
                     type="button"
-                    value="Añadir a favoritos"
+                    value="Add to Favorites"
                     className="BloggerSearchForm__ButtonFavorite"
                     onClick={handleAddFavorites}
                   />
@@ -85,7 +85,7 @@ const RecipeDetail = () => {
                 {isFav(recipe) && (
                   <ButtonDelete
                     type="button"
-                    value="Eliminar de favoritos"
+                    value="Remove from favorites"
                     className="BloggerSearchForm__ButtonDelete"
                     onClick={handleDeleteFavorites}
                   />
