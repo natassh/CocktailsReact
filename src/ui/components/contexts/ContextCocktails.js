@@ -1,8 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-
 import { getRecipesCocktail } from '../../../core/services/cocktails';
-
-// Crear el Context
 export const ContextCocktails = createContext();
 
 const ProviderCocktails = props => {
@@ -23,46 +20,44 @@ const ProviderCocktails = props => {
     setRecipes(recipes);
   };
 
-  // const isFav = cocktailObject => {
-  //   //console.log(cocktailObject.idDrink);
-  //   favorites.forEach(favorite => {
-  //     const idfavorite = favorite.idDrink;
-  //     //console.log(idfavorite);
-  //     if (idfavorite === cocktailObject.idDrink) {
-  //       return true;
-  //     }
-  //     return false;
-  //   });
-
-  //   // if (favorites.includes(cocktailObject)) {
-  //   //   return true;
-  //   // }
-  //   // return false;
-  // };
-
   // Favorites
-  const [favorites, setFavorites] = useState([]);
+  const getInitialState = () => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+    return favorites;
+  };
+
+  const saveFavoritesLocalstorage = favorites => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  };
+
+  const [favorites, setFavorites] = useState(getInitialState());
 
   const setAddFavorite = cocktailObject => {
-    //console.log(cocktailObject); //objeto
-    if (!favorites.includes(cocktailObject)) {
+    const exists = favorites.find(
+      favorite => favorite.idDrink === cocktailObject.idDrink
+    );
+
+    if (!exists) {
       const newFavs = [...favorites, cocktailObject];
       setFavorites(newFavs);
-    }
-  };
-  const setDeleteFavorite = cocktailObject => {
-    if (favorites.includes(cocktailObject)) {
-      console.log('si');
-      const newFavs = favorites.splice(0, 1);
-      setFavorites(newFavs);
+      saveFavoritesLocalstorage(newFavs);
     }
   };
 
-  const isFav = recipe => {
-    //console.log(recipe); //object
-    //console.log(favorites); //array de objetos, vacio en la primera carga
-    if (favorites.includes(recipe)) {
-      //console.log('si');
+  const setDeleteFavorite = cocktailObject => {
+    const newFavs = favorites.filter(
+      favorite => favorite.idDrink !== cocktailObject.idDrink
+    );
+    setFavorites(newFavs);
+    saveFavoritesLocalstorage(newFavs);
+  };
+
+  const isFav = cocktail => {
+    const exists = favorites.find(
+      favorite => favorite.idDrink === cocktail.idDrink
+    );
+
+    if (exists) {
       return true;
     }
     return false;

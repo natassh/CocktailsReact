@@ -34,3 +34,18 @@
   border-bottom: 1px solid var(--bg-);
   display: inline-block;
 }
+@media screen and (max-width: 768px) {
+  .FavoritesSection > div {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 451px) {
+  .FavoritesSection .RecipeList__RecipeBox {
+    margin: 0 1rem 1rem 1rem;
+  }
+}
+@media screen and (max-width: 435px) {
+  .FavoritesSection .RecipeList__RecipeBox {
+    margin: 5px 0.5rem 2rem 0;
+  }
+}

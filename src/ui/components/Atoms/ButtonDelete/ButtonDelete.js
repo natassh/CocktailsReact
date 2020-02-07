@@ -9,5 +9,7 @@ export default ButtonDelete;
 
 ButtonDelete.propTypes = {
   type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func
 };

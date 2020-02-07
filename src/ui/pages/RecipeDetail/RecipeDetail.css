@@ -78,6 +78,15 @@
   text-decoration: none;
   line-height: 1.5rem;
 }
+@media screen and (max-width: 1300px) {
+  .BoxDetail__buttons {
+    flex-direction: column;
+  }
+  .BoxDetail__buttons > div {
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 767px) {
   .BoxDetail {
     flex-direction: column;

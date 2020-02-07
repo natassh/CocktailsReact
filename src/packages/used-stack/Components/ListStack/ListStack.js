@@ -14,7 +14,7 @@ function ListStack() {
         src={imageReact}
         alt="Logo React"
         title="React"
-        content="Proyecto desarrollado en React. Uso Hooks para la gestión del estado y el ciclo de vida de los componentes y Context para la gestión del estado global. También incorporo una libreria de terceros: react-select"
+        content="Proyecto desarrollado en React con React-router, Hooks para la gestión del estado y el ciclo de vida de los componentes y Context para la gestión del estado global. También con persistencia en LocalStorage."
       />
       <ItemListStack
         src={imageCss}

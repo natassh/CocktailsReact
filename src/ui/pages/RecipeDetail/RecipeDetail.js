@@ -40,14 +40,11 @@ const RecipeDetail = () => {
 
   const handleAddFavorites = () => {
     setAddFavorite(recipe);
-    // const cocktailID = recipe.idDrink;
-    // console.log(cocktailID);
   };
 
   const handleDeleteFavorites = () => {
     setDeleteFavorite(recipe);
   };
-  console.log(recipe.idDrink);
 
   if (recipe !== undefined) {
     const nameCocktail = recipe.strDrink;
@@ -85,13 +82,14 @@ const RecipeDetail = () => {
                     onClick={handleAddFavorites}
                   />
                 )}
-
-                <ButtonDelete
-                  type="button"
-                  value="Eliminar de favoritos"
-                  className="BloggerSearchForm__ButtonDelete"
-                  onClick={handleDeleteFavorites}
-                />
+                {isFav(recipe) && (
+                  <ButtonDelete
+                    type="button"
+                    value="Eliminar de favoritos"
+                    className="BloggerSearchForm__ButtonDelete"
+                    onClick={handleDeleteFavorites}
+                  />
+                )}
               </div>
             </div>
           </div>

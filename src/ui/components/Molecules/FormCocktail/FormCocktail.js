@@ -18,7 +18,6 @@ const FormCocktail = ({ className }) => {
     const drinks = categoriesCocktails.drinks;
     setDrinks(drinks);
   };
-  //console.log(drinks);
   const createObjectOptions = drinks => {
     const arrayOptions = [];
     drinks.forEach(bloggerFiltered => {

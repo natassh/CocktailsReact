@@ -9,5 +9,6 @@ export default ButtonSearch;
 
 ButtonSearch.propTypes = {
   type: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  className: PropTypes.string
 };
